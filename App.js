@@ -1,16 +1,27 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Nav from './src/Nav/nav'
+import Generator from "./src/Generator/generator"
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Nav/>
-      <View>
-        <Text>{'string'}</Text>
+export default class App extends React.Component {
+
+  state = {
+    appName: 'My awesome app'
+  }
+
+  onAddRandom = () => {
+    alert('add random')
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Nav appName={this.state.appName}/>
+        <Text>{'some text just for fun'}</Text>
+        <Generator add={this.onAddRandom}/>
       </View>
-    </View>
-  );
+    )
+  }
 }
 
 const styles = StyleSheet.create({

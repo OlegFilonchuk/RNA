@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const Nav = () => (
+const Nav = (props) => (
   <View style={styles.nav}>
-    <Text>My app</Text>
+    <Text>{props.appName}</Text>
   </View>
 )
 
@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     color: 'blue',
     borderBottomWidth: 2,
     borderBottomColor: '#ddd',
-
   }
 })
 
