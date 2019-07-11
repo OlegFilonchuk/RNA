@@ -13,9 +13,17 @@ export default class App extends React.Component {
 
   onAddRandom = () => {
     const random = Math.floor(Math.random()*100) + 1
-    this.setState(prevState =>  {
+    this.setState(prevState => {
       return {
         random: [...prevState.random, random]
+      }
+    })
+  }
+
+  onItemDelete = (i) => {
+    this.setState(prevState => {
+      return {
+        random: prevState.random.filter((item,index) => index !== i)
       }
     })
   }
@@ -26,7 +34,7 @@ export default class App extends React.Component {
         <Nav appName={this.state.appName}/>
         <Text>{'some text just for fun'}</Text>
         <Generator add={this.onAddRandom}/>
-        <ListItem items={this.state.random}/>
+        <ListItem items={this.state.random} delete={this.onItemDelete}/>
       </View>
     )
   }
